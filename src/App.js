@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import UserTable from './componentes/UserTable';
+
 
 function App() {
+
+  const usersData = [
+    { id: 1, name: 'Tania', username: 'floppydiskette' },
+    { id: 2, name: 'Craig', username: 'siliconeidolon' },
+    { id: 3, name: 'Ben', username: 'benisphere' },
+    { id: 4, name: 'Lupita', username: 'lupita_00'}
+  ]
+
+  //Nota simpre que usemos useState hay que ver que se este agregando en la lib de react
+  const [users, setUsers] = useState(usersData);
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1>Proyecto CRUD</h1>
+      <div className="flex-row">
+      <div className="flex-large">
+          <h2>Add user</h2>
+        </div>
+        <div className="flex-large">
+          <h2>View users</h2>
+          <UserTable users={users}/>
+        </div>
+      </div>
     </div>
   );
 }
