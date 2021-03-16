@@ -24,6 +24,13 @@ function App() {
     ])
   }
 
+  //Eliminar usuarios
+  const deleteUser = (id) => {
+    console.log(id)
+    //Condicion para sobre escribir el arreglo
+    setUsers(users.filter(user => user.id != id))
+  }
+
   return (
     <div className="container">
       <h1>Proyecto CRUD</h1>
@@ -34,7 +41,7 @@ function App() {
         </div>
         <div className="flex-large">
           <h2>View users</h2>
-          <UserTable users={users}/>
+          <UserTable users={users} deleteUser={deleteUser}/>
         </div>
       </div>
     </div>
